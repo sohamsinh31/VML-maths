@@ -9,6 +9,7 @@ include_directories(${PROJECT_SOURCE_DIR})
 list(APPEND SOURCES
     vector.c
     vml.c
+    matrix.c
     main.c
 )
 

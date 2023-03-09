@@ -4,12 +4,12 @@ project(vml)
 set(CMAKE_BINARY_DIR ${CMAKE_SOURCE_DIR}/bin)
 SET(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin)
 SET(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin/libs)
-include_directories(${PROJECT_SOURCE_DIR})
+include_directories(${PROJECT_SOURCE_DIR}/include)
 
 list(APPEND SOURCES
-    vector.c
-    vml.c
-    matrix.c
+    src/vector.c
+    src/vml.c
+    src/matrix.c
     main.c
 )
 

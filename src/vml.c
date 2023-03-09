@@ -1,4 +1,6 @@
-#include "vml.h"
+// #include "vml.h"
+#include "stdio.h"
+#include "string.h"
 
 void print_box(int width, int height)
 {
@@ -35,3 +37,4 @@ void print_box(int width, int height)
         printf("*");
     }
 }
+

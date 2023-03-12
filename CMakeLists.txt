@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.20)
 project(vml)
 
-set(CMAKE_SYSTEM_NAME Windows)
+# set(CMAKE_SYSTEM_NAME WIN32)
 set(LIBRARY_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/objs)
 include_directories(${PROJECT_SOURCE_DIR}/include)
 

@@ -1,9 +1,21 @@
-#include "vml.h"
+#include "math.h"
+#include "stdlib.h"
+#include "string.h"
+#include "stdio.h"
 
-void mat2X2(int,int,int);
-void mat3X2(int,int,int);
-void mat4X2(int,int,int);
-void mat3X3(int,int,int);
-void mat3X3(int,int,int);
-void mat3X3(int,int,int);
+typedef struct
+{
+    int rows;
+    int cols;
+    int *data;
+} Matrix;
+
+Matrix createMatrix(int rows, int cols);
+
+int get(Matrix mat, int row, int col);
+
+void set(Matrix mat, int row, int col, int value);
+
+void destroyMatrix(Matrix mat);
+
 // void print_matrix(int matrix[][][]);

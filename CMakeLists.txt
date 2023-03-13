@@ -2,11 +2,12 @@ cmake_minimum_required(VERSION 3.20)
 project(vml)
 
 # set(CMAKE_SYSTEM_NAME WIN32)
+# set(WIN32 TRUE)
 set(LIBRARY_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/objs)
 include_directories(${PROJECT_SOURCE_DIR}/include)
 
 if(WIN32)
-    set(CMAKE_C_COMPILER x86_64-w64-mingw32-gcc )
+    set(CMAKE_C_COMPILER x86_64-w64-mingw32-gcc)
     set(CMAKE_CXX_COMPILER x86_64-w64-mingw32-g++)
     set(CMAKE_BINARY_DIR ${CMAKE_SOURCE_DIR}/bin/windows)
     SET(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin/windows)
@@ -18,6 +19,10 @@ elseif(LINUX)
     SET(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin/linux)
     link_directories(${PROJECT_SOURCE_DIR}/libs/linux)
 elseif(UNIX)
+    set(CMAKE_BINARY_DIR ${CMAKE_SOURCE_DIR}/bin/linux)
+    SET(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin/linux)
+    SET(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin/linux)
+    link_directories(${PROJECT_SOURCE_DIR}/libs/linux)
 endif()
 
 list(APPEND MAIN
@@ -47,6 +52,5 @@ add_custom_command(TARGET ${LIBNAME}
     COMMAND ${CMAKE_COMMAND} -E make_directory ${OBJ_DIR}
     COMMAND ${CMAKE_COMMAND} -E copy_if_different
     $<TARGET_OBJECTS:${LIBNAME_OBJ}> ${OBJ_DIR})
-
 add_executable(vmltest ${MAIN})
 target_link_libraries(vmltest -lvml)

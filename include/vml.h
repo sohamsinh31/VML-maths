@@ -30,5 +30,6 @@
 
 //***********************HERE CUSTOM LIBRARY INPUTS STARTS**************************//
 #include "vectors.h"
+#include "matrix.h"
 
 void print_box(int width,int height);
